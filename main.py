@@ -63,6 +63,8 @@ def scrapFromCode(code: str) -> dict:
 
     altcodeIndex = infoSection[4].find("""https://t.nhentai.net/galleries/""") + 36
     altCode = htmlkotor[altcodeIndex: altcodeIndex + 7]
+    if not altCode.isnumeric:
+        altCode = altCode[:-1]
     thumbnail = htmlkotor[altcodeIndex - 32: altcodeIndex + 17]
     parodiesSection = infoSection[6]
     characterSection = infoSection[8]
